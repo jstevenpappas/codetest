@@ -1,6 +1,7 @@
 
-# no class files in repo
+# no class/jar files in repo
 *.class
+*.jar
 
 # no need for ide-specific settins in repo
 .settings/*
@@ -8,3 +9,6 @@
 
 # excluede bin dir
 bin
+
+# exclude tmp files
+tmp*

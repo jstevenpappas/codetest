@@ -1,101 +1,49 @@
 
 
 
-# Project name: codetest
+# Project  
+Small project submitted for the CyrusInnovation 'codetest' challenge.  
+At the time, they required submissions to be in Java instead of the language of your choice.
 
-## How to run
-
-* Unzip file the zip file codetest.zip and 'cd' (i.e., change directory) into codetest directory created using a Windows/Unix console.  At the command prompt/console type the following: 'ant run'  (assumes you have Ant configured/installed)
-
-* Alternately, you can unzip the file into your Integrated Development Environment workspace and run the main class or the JUnit tests from there.
-
-### IMPORTANT - Regarding Program Output
-* The sort-order of the following 3 records in Output 2 may differ from the contents of the 'model_output.txt' file:
- 	`Bonk Radek Male 6/3/1975 Green`
-	`Bouillon Francis Male 6/3/1975 Blue`
-	`Kournikova Anna Female 6/3/1975 Red`
-*The reason for this is due to the fact these 3 are sorted by 'Date ascending' as per the requirements.  Since they all have the same Date, the 3 records can be sorted in any order and technically still satisfy the requirements (while not exactly matching the contents the 'model_output.txt' file).
-
-
-### How to build
-
-* Unzip file  the zip file codetest.zip and 'cd' into codetest directory created using a Windows/Unix console.
-* Run the following command: ant
-* Ant will create jar file named codetest.jar in current directory.
-
-
-### Program design
-
-*NOTE: Documentation exists also in the Comments of the Java source files.*
-*There are 13 source files in 7 packages (not including the 2 Junit tests in the test.codetest.main package):*
+## Assignment
 
 ```
-com.codetest.constants.DataFileConstants.java
-```
-- Common constants used by application.
+Assignment 
+Write a program that builds a master list of people from three data files, then prints it to console, sorted in three different ways.
 
-```
-com.codetest.constants.DelimiterDerivedRecordMetaData.java
-```
-- Each constant in this Enum represent the fields in each person data file.
-- Additionally, each constant has properties that contains the 'Array Element Index' location for that particular field - for each type of delimited file.
-- This is the constructor for the Enum - it makes it a little easier to picture:
-`DelimiterDerivedRecordMetaData(int csvElementIndex, int spaceElementIndex, int pipeElementIndex)`
-(E.g., GENDER(2,3,3) indicates that the gender field exists in the 2nd array-element index in the comma file and at the 3rd array Element index in both the space and pipe files.)
+Limitations 
+Your program may only use the standard Java SE libraries; no other libraries may be used. Any version of Java is fine.
+If you choose to include unit tests with your submission, you may use the JUnit framework.
 
-```
-com.codetest.dao.PersonRecordDao.java
-com.codetest.dao.PersonRecordDaoImpl.java
-```
-- This interface and accompanying implementation does two things: 
-  1. creates a PersonRecord from an actual record from the Person data file; and,
-  2. creates a List of PersonRecords to return to the calling method.
-- This `getPersonRecord(String line, String filePrefix)` method is unique in that it serves as a dynamic DataMapper.  The correct delimiter is identified by using the source filename.
-- An Enum is used then to order the field-setting of each attribute and identify the correct element in the tokenized array that the current Enum corresponds.
+Input Files 
+The person data files may be found in the codetest_files.zip archive, 
+in the "input_files" directory. Each file contains one person's information per line.
+The properties of a person are separated by either a space (" "), a comma (",")
+or a pipe ("|"). You may assume that there are no separators in any of the properties themselves.
+Some properties (e.g. gender) are represented differently, depending on the delimiter. 
+The order of properties is different for each format:
 
-```
-com.codetest.domain.PersonRecord.java
-com.codetest.domain.PersonRecordDataSource.java
-```
-- The PersonRecord domain object represents Person data
-- We use only one PersonRecord object to represent both Persons with a middle initial and without because the only difference is the lack of a middle initial which implies absence of data and not a different `PersonRecord` 	per se.  The PersonRecordDataSource is the class that represents the source files.
-- If the person data records are held elsewhere besides a File then and object like this allows a little more flexibility with swapping out the persistence store.
+Pipe-delimited files
+Last Name, First Name, Middle Initial, Gender, Favorite Color, Date Of Birth
 
-```
-com.codetest.driver.CodetestDriver.java
-```
-- The driver or Main-Class of our application.
+Space-delimited files 
+Last Name, First Name, Middle Initial, Gender, Date Of Birth, Favorite Color
 
-```
-com.codetest.comparator.DateComparator.java
-com.codetest.comparator.GenderThenLastNameComparator.java
-com.codetest.comparator.LastNameComparator.java
-```
-- Comparator implementations to allow the following sorting:
-  1. by Gender (Female before Male), then Last Name ascending;
-  2. by Date, ascending; and,
-  3. by Last Name, descending.
+Comma-delimited files 
+Last Name, First Name, Gender, Favorite Color, Date Of Birth
 
-```
-com.codetest.exception.PersonRecordException.java
-```
-- Custom Exception for the application.
+Output Format 
+When your program is run using the supplied person input files, it should 
+produce output that matches the file "model_output.txt", which is also include in the codetest_files.zip archive.
 
-```
-com.codetest.service.PersonRecordService.java
-com.codetest.service.PersonRecordServiceImpl.java
-```
-- Service interface and implementation used to abstract data access and hold some business logic (for illustrative purposes, in our case the main() method holds more of the data manipulation logic than the service).
+Person records should be printed with their properties in the following order: 
+Last Name, First Name, Gender, Date Of Birth, Favorite Color.
 
+The merged list should be printed 3 times:
+by Gender (Female before Male), then Last Name ascending.
+by Date, ascending.
+by Last Name, descending.
 
-## JUnit tests
-
+What to submit 
+Your files should be sent in a zip archive. Please make sure to include both compiled classes and source files in the archive, along with a README file that describes how to build it and how to run it. If you use Ant to build your project, please include the build file. If you are including JUnit tests, please include the JUnit jar file in the archive. Please do no include any ".bat" files as our mail filters tend to think that these are viruses.
 ```
-test.codetest.main.PersonRecordDaoTest.java
-```
-- Tests the parsing of the source person data input files and compares the returned `PersonRecord` domain object to the expected domain object.
-
-```
-test.codetest.main.PersonRecordListSortTest.java
-```
-- Tests both the retrieval of the `List<PersonRecord>` from the service method and also tests the expected 'sort-order' of the 3 sorting formats specified in the requirements.
