@@ -1,0 +1,32 @@
+<project name="codetest" default="make" basedir=".">
+	
+	
+	<description>Ant build.xml file for codetest project</description>
+	
+	<property name="lib.dir"     value="lib"/>
+	<property name="src.dir"     value="src"/>
+	
+	<path id="classpath">
+	        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    	</path>
+
+
+	<target name="make" description="build script for jar file">
+		<jar jarfile="codetest.jar" basedir="./bin" excludes="*.java, *.jar, *.log, *.properties" >
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="com.codetest.driver.CodetestDriver" />
+			</manifest>			
+		</jar>		
+	</target>
+	
+	<target name="run" depends="make">
+	        <java fork="true" classname="com.codetest.driver.CodetestDriver">
+	            <classpath>
+	                <path refid="classpath"/>
+	                <path id="application" location="${ant.project.name}.jar"/>
+	            </classpath>
+	        </java>
+    	</target>
+	
+</project>

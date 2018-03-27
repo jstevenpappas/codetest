@@ -1,0 +1,10 @@
+
+# no class files in repo
+*.class
+
+# no need for ide-specific settins in repo
+.settings/*
+.project
+
+# excluede bin dir
+bin
