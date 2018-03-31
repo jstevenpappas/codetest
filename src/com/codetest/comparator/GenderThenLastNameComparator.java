@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 import com.codetest.domain.PersonRecord;
 
-public class GenderThenLastNameComparator implements Comparator {
+public class GenderThenLastNameComparator implements Comparator<PersonRecord> {
 	
 	/**
 	 * Purpose:
@@ -16,7 +16,8 @@ public class GenderThenLastNameComparator implements Comparator {
 	
     private Collator textComparator = Collator.getInstance();
     
-    public int compare(Object o1, Object o2) {
+    @Override
+	public int compare(PersonRecord o1, PersonRecord o2) {
       PersonRecord c1, c2;
       if ((o1 instanceof PersonRecord) && (o2 instanceof PersonRecord)) {
         c1 = (PersonRecord) o1;
@@ -31,7 +32,8 @@ public class GenderThenLastNameComparator implements Comparator {
         return textComparator.compare(o1, o2);
     }
 
-    public boolean equals(Object o) {
+    @Override
+	public boolean equals(Object o) {
       return textComparator.equals(o);
     }
   }

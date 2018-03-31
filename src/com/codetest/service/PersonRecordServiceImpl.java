@@ -9,8 +9,6 @@ import com.codetest.domain.PersonRecord;
 import com.codetest.domain.PersonRecordDataSource;
 import com.codetest.exception.PersonRecordException;
 
-import com.codetest.service.PersonRecordService;
-
 public class PersonRecordServiceImpl implements PersonRecordService {
 
 	/*

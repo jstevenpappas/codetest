@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.logging.Logger;
 
 import junit.framework.Assert;
 
@@ -21,16 +20,6 @@ import com.codetest.service.PersonRecordService;
 import com.codetest.service.PersonRecordServiceImpl;
 
 public class PersonRecordListSortTest {
-
-	/**
-	 * Purpose:
-	 * Tests both the retrieval of the List<PersonRecord>
-	 * from the service method and also tests the expected
-	 * 'sort-order' of the 3 sorting formats specified in 
-	 * the requirements.
-	 */
-	
-	private static final Logger log = Logger.getAnonymousLogger();
 
 	private static String CSV_FILE_NAME = "comma.txt";
 	private static String SSV_FILE_NAME = "space.txt";

@@ -1,7 +1,6 @@
 package test.codetest.dao;
 
 import java.text.ParseException;
-import java.util.logging.Logger;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,15 +10,7 @@ import com.codetest.domain.PersonRecord;
 import com.codetest.exception.PersonRecordException;
 
 public class PersonRecordDaoTest {
-	
-	/**
-	 * Purpose:
-	 * Tests the parsing of the source person data
-	 * input files and compares the returned PersonRecord
-	 * domain object to the expected domain object.
-	 */
-	
-	private static final Logger log = Logger.getAnonymousLogger();
+
 	@Test
 	public void testGetCSVPersonRecordObject() throws PersonRecordException, ParseException{
 		String sampleCSVRecord = "Abercrombie, Neil, Male, Tan, 2/13/1943";

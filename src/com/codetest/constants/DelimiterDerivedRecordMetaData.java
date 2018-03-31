@@ -1,6 +1,11 @@
 package com.codetest.constants;
 
-import static com.codetest.constants.DataFileConstants.*;
+import static com.codetest.constants.DataFileConstants.COMMA_DELIMITER;
+import static com.codetest.constants.DataFileConstants.FILE_PREFIX_CSV;
+import static com.codetest.constants.DataFileConstants.FILE_PREFIX_PIPE;
+import static com.codetest.constants.DataFileConstants.FILE_PREFIX_SPACE;
+import static com.codetest.constants.DataFileConstants.PIPE_DELIMITER;
+import static com.codetest.constants.DataFileConstants.SPACE_DELIMITER;
 
 /**
  * 

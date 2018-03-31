@@ -1,16 +1,21 @@
 package com.codetest.dao;
 
-import static com.codetest.constants.DelimiterDerivedRecordMetaData.*;
-import com.codetest.constants.DataFileConstants;
-import com.codetest.constants.DelimiterDerivedRecordMetaData;
+import static com.codetest.constants.DelimiterDerivedRecordMetaData.DATE_OF_BIRTH;
+import static com.codetest.constants.DelimiterDerivedRecordMetaData.FAVORITE_COLOR;
+import static com.codetest.constants.DelimiterDerivedRecordMetaData.FIRST_NAME;
+import static com.codetest.constants.DelimiterDerivedRecordMetaData.GENDER;
+import static com.codetest.constants.DelimiterDerivedRecordMetaData.LAST_NAME;
+import static com.codetest.constants.DelimiterDerivedRecordMetaData.MIDDLE_INITIAL;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.codetest.constants.DataFileConstants;
+import com.codetest.constants.DelimiterDerivedRecordMetaData;
 import com.codetest.domain.PersonRecord;
 import com.codetest.exception.PersonRecordException;
 

@@ -1,9 +1,9 @@
 package com.codetest.driver;
 
-import static com.codetest.constants.DataFileConstants.FILE_PREFIX_CSV;
-import static com.codetest.constants.DataFileConstants.FILE_PREFIX_SPACE;
-import static com.codetest.constants.DataFileConstants.FILE_PREFIX_PIPE;
 import static com.codetest.constants.DataFileConstants.FILE_EXTENSION;
+import static com.codetest.constants.DataFileConstants.FILE_PREFIX_CSV;
+import static com.codetest.constants.DataFileConstants.FILE_PREFIX_PIPE;
+import static com.codetest.constants.DataFileConstants.FILE_PREFIX_SPACE;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -14,7 +14,6 @@ import java.util.List;
 import com.codetest.comparator.DateComparator;
 import com.codetest.comparator.GenderThenLastNameComparator;
 import com.codetest.comparator.LastNameComparator;
-
 import com.codetest.domain.PersonRecord;
 import com.codetest.domain.PersonRecordDataSource;
 import com.codetest.service.PersonRecordService;
