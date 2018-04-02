@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.codetest.domain.PersonRecord;
 import com.codetest.domain.PersonRecordDataSource;
-import com.codetest.exception.PersonRecordException;
+import com.codetest.exception.ApplicationException;
 import com.codetest.service.PersonRecordService;
 import com.codetest.service.PersonRecordServiceImpl;
 
@@ -35,7 +35,7 @@ public class PersonRecordServiceTest {
 	
 
 	@Test
-	public void testGetPersonRecords() throws PersonRecordException {
+	public void testGetPersonRecords() throws ApplicationException  {
 		int expectedSize = 9;
 		
 		PersonRecordDataSource personRecordDataSource = new PersonRecordDataSource();

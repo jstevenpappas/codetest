@@ -9,54 +9,65 @@ import java.util.Date;
  * 
  */
 public class PersonRecord {
-	
+
 	private String lastName;
 	private String firstName;
 	private String middleInitial;
 	private String gender;
 	private String favoriteColor;
 	private Date dateOfBirth;
-	
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getMiddleInitial() {
 		return middleInitial;
 	}
+
 	public void setMiddleInitial(String middleInitial) {
 		this.middleInitial = middleInitial;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
-		if(gender.equalsIgnoreCase("M")){
+		if (gender.equalsIgnoreCase("M")) {
 			this.gender = "Male";
-		} else if(gender.equalsIgnoreCase("F")){
+		} else if (gender.equalsIgnoreCase("F")) {
 			this.gender = "Female";
 		} else {
 			this.gender = gender;
 		}
-		
+
 	}
+
 	public String getFavoriteColor() {
 		return favoriteColor;
 	}
+
 	public void setFavoriteColor(String favoriteColor) {
 		this.favoriteColor = favoriteColor;
 	}
+
 	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
+
 	public void setDateOfBirth(String dateOfBirth) throws ParseException {
 		/*
 		 * 2 formats accepted,
@@ -71,17 +82,19 @@ public class PersonRecord {
 			this.dateOfBirth = new SimpleDateFormat("M/d/yyyy").parse(dateOfBirth);
 		} 
 	}
+
 	@Override
 	public String toString() {
 		/*
-		 * Example toString() default
-		 * output:
-		 * (lastName,firstName,gender,date,color)
-		 * Abercrombie Neil Male 2/13/1943 Tan
+		 * Example toString() default output:
+		 * (lastName,firstName,gender,date,color) Abercrombie Neil Male
+		 * 2/13/1943 Tan
 		 */
 		SimpleDateFormat format = new SimpleDateFormat("M/d/yyyy");
-		return lastName + " " + firstName + " "	+ gender + " " + format.format(dateOfBirth) + " " + favoriteColor;
+		return lastName + " " + firstName + " " + gender + " "
+				+ format.format(dateOfBirth) + " " + favoriteColor;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -99,6 +112,7 @@ public class PersonRecord {
 				+ ((middleInitial == null) ? 0 : middleInitial.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -140,9 +154,5 @@ public class PersonRecord {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }

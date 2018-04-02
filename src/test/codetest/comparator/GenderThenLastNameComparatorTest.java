@@ -15,7 +15,7 @@ import org.junit.Test;
 import com.codetest.comparator.GenderThenLastNameComparator;
 import com.codetest.domain.PersonRecord;
 import com.codetest.domain.PersonRecordDataSource;
-import com.codetest.exception.PersonRecordException;
+import com.codetest.exception.ApplicationException;
 import com.codetest.service.PersonRecordService;
 import com.codetest.service.PersonRecordServiceImpl;
 
@@ -37,7 +37,7 @@ public class GenderThenLastNameComparatorTest {
 	}
 
 	@Test
-	public void testCompare() throws PersonRecordException, ParseException {
+	public void testCompare() throws ParseException, ApplicationException {
 		PersonRecordDataSource personRecordDataSource = new PersonRecordDataSource();
 
 		personRecordDataSource.setCsvFile(CSV_FILE);
