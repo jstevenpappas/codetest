@@ -1,14 +1,11 @@
 package test.codetest.comparator;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.logging.Logger;
 
 import junit.framework.Assert;
 
@@ -18,14 +15,12 @@ import org.junit.Test;
 import com.codetest.comparator.GenderThenLastNameComparator;
 import com.codetest.domain.PersonRecord;
 import com.codetest.domain.PersonRecordDataSource;
-import com.codetest.exception.PersonRecordException;
+import com.codetest.exception.ApplicationException;
 import com.codetest.service.PersonRecordService;
 import com.codetest.service.PersonRecordServiceImpl;
 
 public class GenderThenLastNameComparatorTest {
 	
-	private static final Logger log = Logger.getAnonymousLogger();
-
 	private static String CSV_FILE_NAME = "comma.txt";
 	private static String SSV_FILE_NAME = "space.txt";
 	private static String PSV_FILE_NAME = "pipe.txt";
@@ -42,7 +37,7 @@ public class GenderThenLastNameComparatorTest {
 	}
 
 	@Test
-	public void testCompare() throws PersonRecordException, ParseException {
+	public void testCompare() throws ParseException, ApplicationException {
 		PersonRecordDataSource personRecordDataSource = new PersonRecordDataSource();
 
 		personRecordDataSource.setCsvFile(CSV_FILE);
