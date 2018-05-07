@@ -5,6 +5,9 @@
 Small project submitted for the CyrusInnovation 'codetest' challenge.  
 At the time, they required submissions to be in Java instead of the language of your choice.
 
+## How to Run
+Instructions and screenshots are located in the ```docs``` directory
+
 ## Assignment
 
 ```
